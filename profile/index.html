@@ -3,9 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
+
     <title>Document</title>
 </head>
 <body>
-    User Profile
+
+  <div class="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+    <header class="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+      <div class="flex items-center gap-4">
+        <span class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+          <img class="aspect-square h-full w-full" alt="@shadcn" src="../assets/dp.webp" />
+        </span>
+        <div class="grid gap-0.5">
+          <div  id="userName" class="text-lg font-bold">Chloe Nguyen</div>
+        </div>
+      </div>
+      <div class="ml-auto flex items-center gap-2">
+        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md px-3 h-8 gap-1">
+          <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">Edit Profile</span>
+        </button>
+        <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-3 h-8 gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-3.5 w-3.5"
+          >
+            <path d="M5 12h14"></path>
+            <path d="M12 5v14"></path>
+          </svg>
+          <span class="sr-only sm:not-sr-only sm:whitespace-nowrap">New Post</span>
+        </button>
+      </div>
+    </header>
+    <main class="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-[250px_1fr]">
+      <div class="grid gap-4">
+        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+          <div class="flex flex-col space-y-1.5 p-6">
+            <h3 class="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Profile</h3>
+          </div>
+          <div class="p-6">
+            <div class="grid gap-2">
+              <div class="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <div>Chloe Nguyen</div>
+              </div>
+             
+              <div class="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 text-muted-foreground"
+                >
+                  <path d="M8 2v4"></path>
+                  <path d="M16 2v4"></path>
+                  <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                </svg>
+                <div>Joined in 2021</div>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-4 w-4 text-muted-foreground"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <div>chloeng@example.com</div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+<section class="w-full py-12 md:py-24">
+  <div class="container grid gap-8 px-4 md:px-6">
+    <div class="grid gap-2">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Our Latest Blog Posts</h2>
+      <p class="text-muted-foreground">Dive into our latest insights and stories.</p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-4">
+        <img
+          src="/placeholder.svg"
+          alt="Blog post image"
+          width="600"
+          height="400"
+          class="rounded-lg object-cover"
+          style="aspect-ratio: 600 / 400; object-fit: cover;"
+        />
+        <div class="grid gap-2">
+          <h3 class="text-xl font-semibold">Unlocking the Power of Automation</h3>
+          <p class="text-muted-foreground">
+            Discover how automation can streamline your workflows and boost productivity.
+          </p>
+          <a class="font-medium underline underline-offset-4" href="#">
+            Read more
+          </a>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <img
+          src="/placeholder.svg"
+          alt="Blog post image"
+          width="600"
+          height="400"
+          class="rounded-lg object-cover"
+          style="aspect-ratio: 600 / 400; object-fit: cover;"
+        />
+        <div class="grid gap-2">
+          <h3 class="text-xl font-semibold">The Future of Remote Work</h3>
+          <p class="text-muted-foreground">
+            Explore the evolving landscape of remote work and its implications for businesses.
+          </p>
+          <a class="font-medium underline underline-offset-4" href="#">
+            Read more
+          </a>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <img
+          src="/placeholder.svg"
+          alt="Blog post image"
+          width="600"
+          height="400"
+          class="rounded-lg object-cover"
+          style="aspect-ratio: 600 / 400; object-fit: cover;"
+        />
+        <div class="grid gap-2">
+          <h3 class="text-xl font-semibold">Mastering the Art of Effective Communication</h3>
+          <p class="text-muted-foreground">
+            Learn strategies to enhance your communication skills and foster stronger connections.
+          </p>
+          <a class="font-medium underline underline-offset-4" href="#">
+            Read more
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+  </div>
+</div>
+
 </body>
 </html>

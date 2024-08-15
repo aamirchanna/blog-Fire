@@ -77,7 +77,7 @@ async function getAllBlogs() {
               />
               <div class="p-4">
                 <h2 class="text-xl font-bold mb-2">${title}</h2>
-                <h2 class="text-sm  mb-2">${desc}</h2>
+                <h2 class="text-sm  mb-2">${ desc,desc.substring(1 , 250)}...</h2>
                 <p class="text-gray-600 mb-2">Time: ${date}}</p>
                 <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
                 <div class="flex justify-between items-center">
