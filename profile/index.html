@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
-
-    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <title>Profile</title>
 </head>
 <body>
 
@@ -115,73 +118,16 @@
       
       </div>
       
-<section class="w-full py-12 md:py-24">
-  <div class="container grid gap-8 px-4 md:px-6">
-    <div class="grid gap-2">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Our Latest Blog Posts</h2>
-      <p class="text-muted-foreground">Dive into our latest insights and stories.</p>
-    </div>
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <div class="grid gap-4">
-        <img
-          src="/placeholder.svg"
-          alt="Blog post image"
-          width="600"
-          height="400"
-          class="rounded-lg object-cover"
-          style="aspect-ratio: 600 / 400; object-fit: cover;"
-        />
-        <div class="grid gap-2">
-          <h3 class="text-xl font-semibold">Unlocking the Power of Automation</h3>
-          <p class="text-muted-foreground">
-            Discover how automation can streamline your workflows and boost productivity.
-          </p>
-          <a class="font-medium underline underline-offset-4" href="#">
-            Read more
-          </a>
+      <div class="container mx-auto p-4">
+        <!-- <h1 class="text-3xl font-bold mb-6 text-center">Upcoming Events</h1> -->
+        <div
+          id="events_cards_container"
+          class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        >
         </div>
       </div>
-      <div class="grid gap-4">
-        <img
-          src="/placeholder.svg"
-          alt="Blog post image"
-          width="600"
-          height="400"
-          class="rounded-lg object-cover"
-          style="aspect-ratio: 600 / 400; object-fit: cover;"
-        />
-        <div class="grid gap-2">
-          <h3 class="text-xl font-semibold">The Future of Remote Work</h3>
-          <p class="text-muted-foreground">
-            Explore the evolving landscape of remote work and its implications for businesses.
-          </p>
-          <a class="font-medium underline underline-offset-4" href="#">
-            Read more
-          </a>
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <img
-          src="/placeholder.svg"
-          alt="Blog post image"
-          width="600"
-          height="400"
-          class="rounded-lg object-cover"
-          style="aspect-ratio: 600 / 400; object-fit: cover;"
-        />
-        <div class="grid gap-2">
-          <h3 class="text-xl font-semibold">Mastering the Art of Effective Communication</h3>
-          <p class="text-muted-foreground">
-            Learn strategies to enhance your communication skills and foster stronger connections.
-          </p>
-          <a class="font-medium underline underline-offset-4" href="#">
-            Read more
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  
+     <script src="app.js" type="module"></script>
     </main>
   </div>
 </div>

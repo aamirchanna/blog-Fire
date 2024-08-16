@@ -69,32 +69,37 @@ async function getAllBlogs() {
             const { banner, title, createdByEmail, desc,  date } =
               event;
 
-              const card = `<div class="bg-white shadow-md rounded-lg overflow-hidden">
-              <img
-                src="${banner}"
-                alt="Event Image"
-                class="w-full h-48 object-cover"
-              />
-              <div class="p-4">
-                <h2 class="text-xl font-bold mb-2">${title}</h2>
-                <h2 class="text-sm  mb-2">${ desc,desc.substring(1 , 250)}...</h2>
-                <p class="text-gray-600 mb-2">Time: ${date}}</p>
-                <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
-                <div class="flex justify-between items-center">
-                  <button
-                    id = ${doc.id}
-                    onclick ="likeEvent(this)"
-                    class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600"
-                  >
+              
+    const card = `
+   <div class="grid grid-cols-6 gap-4 grid-cols-1 lg:grid-cols-3">
+    <div class="card card-compact bg-base-100 col-span-6 w-full  h-96 shadow-xl">
+        <figure>
+            <img src="${banner}" alt="blog" class="w-full H-[280px] object-cover"/>
+        </figure>
+        <div class="card-body">
+            <h2 class="card-title">${title}</h2>
+            <p>${desc.substring(0, 250)}</p>
+            <p>${date}</p>
+            <p>Author: ${createdByEmail}</p>
+            <div class="card-actions justify-end">
+                <a href="./profile/index.html">
+                    <img class="w-10 h-10 rounded-full" src="${user_img}" alt="" id="user_img" />
+                </a>   
+                <button class="btn btn-primary" id="${doc.id}" onclick="likeEvent(this)">
                     ${
                       auth?.currentUser && event?.likes?.includes(auth?.currentUser.uid)
                         ? "Liked.."
                         : "Like"
                     } ${event?.likes?.length ? event?.likes?.length : ""}
-                  </button>
-                </div>
-              </div>
-            </div> `;
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+`;
+
+
         
       window.likeEvent = likeEvent;
       events_cards_container.innerHTML += card;
@@ -133,3 +138,12 @@ async function likeEvent(e) {
       window.location.href = "./auth/login/login.html";
     }
   }
+
+
+  // <img
+  //             class="w-10 h-10 rounded-full"
+  //             src="${banner}"
+  //             alt=""
+  //             id="user_img"
+  //           />
+  //         </a>

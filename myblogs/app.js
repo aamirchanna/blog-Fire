@@ -18,7 +18,9 @@ const user_img = document.getElementById("user_img");
 const events_cards_container = document.getElementById(
     "events_cards_container"
 );
-getMyEvents()
+
+
+
 onAuthStateChanged(auth, (user) => {
     if (user) {
                                                        // User is signed in, see docs for a list of available properties
@@ -38,7 +40,7 @@ onAuthStateChanged(auth, (user) => {
 logout_btn.addEventListener("click", () => {
     signOut(auth);
 });
-
+getMyEvents()
 function getUserInfo(uid) {
     const userRef = doc(db, "users", uid);
     getDoc(userRef).then((data) => {
@@ -77,8 +79,8 @@ async function getMyEvents(uid) {
           />
           <div class="p-4">
             <h2 class="text-xl font-bold mb-2">${title}</h2>
-            <h2 class="text-md mb-2">${desc}</h2>
-            <p class="text-gray-600 mb-2">Time: ${date}</p>
+            <h2 class="text-md mb-2">${desc,desc.substring(1 , 250)}...</h2>
+            <p class="text-gray-600 mb-2"> ${date}</p>
             <p class="text-gray-600 mb-2">Creator: ${createdByEmail}</p>
             <div class="flex justify-between items-center">
               <button
