@@ -6,8 +6,7 @@ import {
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
 import {
-  auth, 
-  signInWithEmailAndPassword, createUserWithEmailAndPassword,
+  auth,  createUserWithEmailAndPassword,
   getFirestore,
   doc,
   setDoc,
@@ -17,12 +16,7 @@ import {
   collection,
   addDoc,
   db,
-  updateDoc,
-  arrayUnion,
-  arrayRemove,
-  query,
-  where,
-  deleteDoc
+
 } from "../../utils/utils.js";
 
 

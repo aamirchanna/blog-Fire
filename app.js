@@ -2,9 +2,11 @@ import {
     auth,
     storage,
     db,
+    query,
     signOut,
     getDoc,
     doc,
+    where,
     onAuthStateChanged,
     getDocs,
     collection,
@@ -56,60 +58,59 @@ function getUserInfo(uid) {
     });
   }
   
+
 async function getAllBlogs() {
-    try {
-        const querySnapshot = await getDocs(collection(db, "blogs"));
-        events_cards_container.innerHTML = "";
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-            const event = doc.data();
-
-            console.log("event=>", event);
+  try {
+      const querySnapshot = await getDocs(collection(db, "blogs"));
+      events_cards_container.innerHTML = "";
       
-            const { banner, title, createdByEmail, desc,  date } =
-              event;
+      for (const doc of querySnapshot.docs) {
+          const event = doc.data();
+          const { banner, title, createdByEmail, desc, date } = event;
 
-              
-    const card = `
-   <div class="grid grid-cols-6 gap-4 grid-cols-1 lg:grid-cols-3">
-    <div class="card card-compact bg-base-100 col-span-6 w-full  h-96 shadow-xl">
-        <figure>
-            <img src="${banner}" alt="blog" class="w-full H-[280px] object-cover"/>
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title">${title}</h2>
-            <p>${desc.substring(0, 250)}</p>
-            <p>${date}</p>
-            <p>Author: ${createdByEmail}</p>
-            <div class="card-actions justify-end">
-                <a href="./profile/index.html">
-                    <img class="w-10 h-10 rounded-full" src="${user_img}" alt="" id="user_img" />
-                </a>   
-                <button class="btn btn-primary" id="${doc.id}" onclick="likeEvent(this)">
-                    ${
-                      auth?.currentUser && event?.likes?.includes(auth?.currentUser.uid)
-                        ? "Liked.."
-                        : "Like"
-                    } ${event?.likes?.length ? event?.likes?.length : ""}
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+          const card = `
+          <div class="p-4 card card-compact bg-base-100 shadow-md w-86">
+              <img src="${banner}" alt="blog" class="w-full rounded-xl h-[280px] object-cover" />
+              <div class="card-body gap-5">
+                  <p class="text-xs text-opacity-60">${date}</p>
+                  <section>
+                      <h2 class="card-title">${title}</h2>
+                      <p>${desc.substring(0, 250)}...</p>
+                  </section>
+                  <section>
+                      <div class="flex flex-col gap-4">
+                          <h4 class="font-medium">Author: ${createdByEmail}</h4>
+                          <div class="flex gap-3 items-center justify-start">
+                              <a href="./profile/index.html">
+                                  <img class="w-12 rounded-full" src="${user_img}" alt="user avatar">
+                              </a>
+                          </div>
+                      </div>
+                  </section>
+                  <div class="card-actions justify-end">
+                      <button class="btn btn-primary" id="${doc.id}" onclick="likeEvent(this)">
+                          ${
+                            auth?.currentUser &&
+                            event?.likes?.includes(auth?.currentUser.uid)
+                              ? "Liked.."
+                              : "Like"
+                          } ${event?.likes?.length ? event?.likes?.length : ""}
+                      </button>
+                  </div>
+              </div>
+          </div>
+          `;
 
-`;
+          events_cards_container.innerHTML += card;
+      }
+  } catch (error) {
+      console.error("Error getting documents: ", error);
+  }
+}
 
 
-        
-      window.likeEvent = likeEvent;
-      events_cards_container.innerHTML += card;
-      console.log(event);
-        
-        })
-    } catch (err) {
-        console.log(err)
-    }
-} 
+
+
 
 async function likeEvent(e) {
     if (auth.currentUser) {
